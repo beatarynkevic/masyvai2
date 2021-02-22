@@ -57,14 +57,14 @@ foreach(range(1, 10) as $index => $v) {
     foreach(range(1, 10) as $index2 => $v2) {
         $masyvas10[$index][$index2]["value"] = $value[rand(0, 5)];
        $masyvas10[$index][$index2]["color"] = "#".(dechex(rand(0x000000, 0xFFFFFF)));
- 
+        //"#" . substr(md5(rand()), 0, 6); kitoks budas sugeneruoti spalvai
     }
 }
 
 foreach($masyvas10 as $row) {
     echo "<div>";
     foreach($row as $el) {
-        echo '<span style="color:'. $el['color'].';">'.$el['value'] ." ".'</span>';
+        echo '<span style="color:'. $el['color'].'; display: inline-block; width: 20px;">'.$el['value'] ." ".'</span>';
     }
     echo "</div>";
 }
