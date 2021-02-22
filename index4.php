@@ -52,25 +52,20 @@ Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reik�
 <?php
 
 $masyvas10= [];
-$charpool = ['#', '%', '+', '*', '@', '裡'];
+$value = ['#', '%', '+', '*', '@', '裡'];
 foreach(range(1, 10) as $index => $v) {
     foreach(range(1, 10) as $index2 => $v2) {
-        $offset = rand(0, count($charpool)-1);
-        $rndchar = $charpool[$offset];
-        $color = dechex(rand(0x000000, 0xFFFFFF));
-        $masyvas10[$index][$index2]["value"] = $rndchar;
-       $masyvas10[$index][$index2]["color"] = 123;
+        $masyvas10[$index][$index2]["value"] = $value[rand(0, 5)];
+       $masyvas10[$index][$index2]["color"] = "#".(dechex(rand(0x000000, 0xFFFFFF)));
  
     }
 }
-for($i = 0; $i < count($charpool); $i++) {
-    for($j = 0; $j < count($charpool); $j++) {
-        $color = dechex(rand(0x000000, 0xFFFFFF));
-        $offset = rand(0, count($charpool)-1); //random pozicija sugeneruoja
-            $rndchar = $charpool[$offset];
-        echo "<span style='color:#$color;font-size: 30px';>$rndchar </span> ";
-    }
-    echo '<br>';
-}
 
+foreach($masyvas10 as $row) {
+    echo "<div>";
+    foreach($row as $el) {
+        echo '<span style="color:'. $el['color'].';">'.$el['value'] ." ".'</span>';
+    }
+    echo "</div>";
+}
 ?>
