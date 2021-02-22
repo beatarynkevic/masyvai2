@@ -3,6 +3,7 @@
 Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite.
 Antro lygio masyvo reikšmes užpildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 įrašykite tiesiogiai. -->
 <?php
+// echo '<pre>';
 $masyvas8= [];
 foreach(range(1, 10) as $key => $value) {
     $randomNumber = rand(0, 5);
@@ -54,13 +55,12 @@ $masyvas10= [];
 $charpool = ['#', '%', '+', '*', '@', '裡'];
 foreach(range(1, 10) as $index => $v) {
     foreach(range(1, 10) as $index2 => $v2) {
-        foreach(range(0, 1) as $index3 => $v3) {
-            $offset = rand(0, count($charpool)-1);
-            $rndchar = $charpool[$offset];
-            $color = dechex(rand(0x000000, 0xFFFFFF));
-            $masyvas10[$index][$index2]["value"] = $rndchar;
-            $masyvas10[$index][$index2]["color"] = 123;
-        } 
+        $offset = rand(0, count($charpool)-1);
+        $rndchar = $charpool[$offset];
+        $color = dechex(rand(0x000000, 0xFFFFFF));
+        $masyvas10[$index][$index2]["value"] = $rndchar;
+       $masyvas10[$index][$index2]["color"] = 123;
+ 
     }
 }
 for($i = 0; $i < count($charpool); $i++) {
